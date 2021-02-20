@@ -15,8 +15,8 @@
     "contracts"
   ],
   "dependencies": {
-    "@uniswap/lib": "1.1.1",
-    "@uniswap/v2-core": "1.0.0"
+    "@reswap/v2-core": "https://github.com/Reswap-DEX/reswap-core",
+    "@uniswap/lib": "1.1.1"
   },
   "devDependencies": {
     "@types/chai": "^4.2.6",
@@ -42,6 +42,7 @@
     "postcompile": "yarn copy-v1-artifacts",
     "pretest": "yarn compile",
     "test": "mocha",
+    "test:debug": "mocha --inspect",
     "prepublishOnly": "yarn test"
   },
   "license": "GPL-3.0-or-later"

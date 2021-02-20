@@ -1,6 +1,6 @@
 pragma solidity =0.6.6;
 
-import '../libraries/UniswapV2LiquidityMathLibrary.sol';
+import '../libraries/ReswapV2LiquidityMathLibrary.sol';
 
 contract ExampleComputeLiquidityValue {
     using SafeMath for uint256;
@@ -11,14 +11,14 @@ contract ExampleComputeLiquidityValue {
         factory = factory_;
     }
 
-    // see UniswapV2LiquidityMathLibrary#getReservesAfterArbitrage
+    // see ReswapV2LiquidityMathLibrary#getReservesAfterArbitrage
     function getReservesAfterArbitrage(
         address tokenA,
         address tokenB,
         uint256 truePriceTokenA,
         uint256 truePriceTokenB
     ) external view returns (uint256 reserveA, uint256 reserveB) {
-        return UniswapV2LiquidityMathLibrary.getReservesAfterArbitrage(
+        return ReswapV2LiquidityMathLibrary.getReservesAfterArbitrage(
             factory,
             tokenA,
             tokenB,
@@ -27,7 +27,7 @@ contract ExampleComputeLiquidityValue {
         );
     }
 
-    // see UniswapV2LiquidityMathLibrary#getLiquidityValue
+    // see ReswapV2LiquidityMathLibrary#getLiquidityValue
     function getLiquidityValue(
         address tokenA,
         address tokenB,
@@ -36,7 +36,7 @@ contract ExampleComputeLiquidityValue {
         uint256 tokenAAmount,
         uint256 tokenBAmount
     ) {
-        return UniswapV2LiquidityMathLibrary.getLiquidityValue(
+        return ReswapV2LiquidityMathLibrary.getLiquidityValue(
             factory,
             tokenA,
             tokenB,
@@ -44,7 +44,7 @@ contract ExampleComputeLiquidityValue {
         );
     }
 
-    // see UniswapV2LiquidityMathLibrary#getLiquidityValueAfterArbitrageToPrice
+    // see ReswapV2LiquidityMathLibrary#getLiquidityValueAfterArbitrageToPrice
     function getLiquidityValueAfterArbitrageToPrice(
         address tokenA,
         address tokenB,
@@ -55,7 +55,7 @@ contract ExampleComputeLiquidityValue {
         uint256 tokenAAmount,
         uint256 tokenBAmount
     ) {
-        return UniswapV2LiquidityMathLibrary.getLiquidityValueAfterArbitrageToPrice(
+        return ReswapV2LiquidityMathLibrary.getLiquidityValueAfterArbitrageToPrice(
             factory,
             tokenA,
             tokenB,
@@ -76,7 +76,7 @@ contract ExampleComputeLiquidityValue {
         uint256
     ) {
         uint gasBefore = gasleft();
-        UniswapV2LiquidityMathLibrary.getLiquidityValueAfterArbitrageToPrice(
+        ReswapV2LiquidityMathLibrary.getLiquidityValueAfterArbitrageToPrice(
             factory,
             tokenA,
             tokenB,
